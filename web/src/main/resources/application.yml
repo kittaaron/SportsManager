@@ -1,0 +1,41 @@
+
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffixe: .jsp
+  thymeleaf:
+    enabled: false
+    cache: false
+
+  #Mysql地址
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/sports?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+
+hibernate:
+  cache:
+    use_query_cache: true
+    use_second_level_cache: true
+    region:
+      factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+server:
+  port: 18080
+debug: true
